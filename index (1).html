@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZIAIM - Optimize Everything</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:Inter,Arial,sans-serif;color:#fff;background:#03030d;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:
+radial-gradient(circle at 75% 16%,rgba(119,45,255,.42),transparent 25%),
+radial-gradient(circle at 25% 45%,rgba(47,67,255,.18),transparent 30%),
+radial-gradient(circle at 60% 80%,rgba(163,35,255,.13),transparent 28%),
+linear-gradient(145deg,#02020b,#08071b 55%,#02030b);z-index:-2}
+body:after{content:"";position:fixed;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:95px 95px;opacity:.05;z-index:-1}
+.app{max-width:760px;margin:auto;padding:34px 18px 28px}
+.header{display:flex;align-items:center;gap:20px;padding:8px 10px 25px}
+.logo{width:126px;height:126px;border-radius:50%;display:grid;place-items:center;border:2px solid #7d4dff;box-shadow:0 0 28px #6c27ff, inset 0 0 28px rgba(105,58,255,.65);background:radial-gradient(circle,#15112e,#03030c 70%);font-size:66px;font-weight:900;font-style:italic}
+.brand{font-size:42px;font-weight:800;letter-spacing:1px;color:#a35aff;text-shadow:0 0 18px #7629ff}.tag{font-size:18px;color:#eee;margin-top:5px;line-height:1.35}
+.bell{margin-left:auto;width:66px;height:66px;border:1px solid #3e2d69;border-radius:17px;background:#111022;color:white;font-size:30px;display:grid;place-items:center}
+.card{border:1px solid rgba(131,103,220,.5);background:linear-gradient(145deg,rgba(20,18,42,.84),rgba(5,6,20,.82));box-shadow:0 10px 30px rgba(0,0,0,.25),inset 0 0 30px rgba(88,44,180,.06);border-radius:20px;margin-bottom:16px}
+.section-title{padding:22px 24px 10px;color:#9d55ff;font-weight:800;font-size:20px;display:flex;justify-content:space-between;align-items:center}
+.item{display:flex;align-items:center;gap:16px;padding:17px 22px;border-top:1px solid rgba(139,119,190,.2)}
+.icon{width:58px;height:58px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#1d1a37,#0a0b19);border:1px solid #302857;color:#a36cff;font-size:29px;flex:none}
+.info{flex:1}.name{font-size:18px;font-weight:700}.desc{color:#b7b3c7;margin-top:5px}.status{min-width:145px}.switchrow{display:flex;align-items:center;gap:14px}.toggle{width:70px;height:38px;border:0;border-radius:25px;background:#292b39;position:relative;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}.toggle:before{content:"";position:absolute;width:30px;height:30px;top:4px;left:4px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 2px 8px #000}.toggle.on{background:linear-gradient(90deg,#6e22ff,#9c55ff)}.toggle.on:before{left:36px}.state{font-size:17px;font-weight:700}.success{color:#2eea74;font-size:14px;margin-top:4px}.off{color:#ff4e67}
+.arrow{font-size:32px;color:#8880a1}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:10px 24px 24px}.tool{min-height:180px;border:1px solid #302750;border-radius:18px;background:linear-gradient(145deg,#17152d,#090a18);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:.2s}.tool:hover{transform:translateY(-2px);border-color:#8c4dff;box-shadow:0 0 18px rgba(130,55,255,.22)}.tool .ti{font-size:50px;color:#a768ff;text-shadow:0 0 16px #762eff}.tool b{font-size:18px;margin-top:12px}.tool small{color:#aaa5bc;margin-top:5px}.line{width:55px;height:4px;background:#8e3fff;border-radius:4px;margin-top:14px;box-shadow:0 0 12px #8e3fff}
+.zalo{display:flex;align-items:center;gap:18px;padding:20px 28px}.zlogo{width:72px;height:72px;border-radius:18px;background:white;color:#1474dc;display:grid;place-items:center;font-size:24px;font-weight:800}.ztext{flex:1}.ztext h3{margin:0;color:#a658ff;font-size:22px}.ztext p{margin:5px 0;color:#aaa6b9}.zbtn{border:0;border-radius:28px;padding:15px 24px;background:linear-gradient(90deg,#6730ef,#9b4fff);color:white;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 0 20px rgba(129,47,255,.35)}
+.nav{display:grid;grid-template-columns:repeat(3,1fr);padding:12px 8px}.nav button{background:none;border:0;color:#9993aa;font-size:15px;padding:8px;cursor:pointer}.nav button.active{color:#a95cff}.nav .ni{display:block;font-size:27px;margin-bottom:5px}
+.toast{position:fixed;left:50%;bottom:25px;transform:translateX(-50%) translateY(20px);background:#171329;border:1px solid #6e3fd2;border-radius:14px;padding:12px 18px;opacity:0;transition:.25s;pointer-events:none;box-shadow:0 0 25px rgba(100,40,255,.3)}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:620px){.app{padding:18px 10px}.header{gap:12px}.logo{width:88px;height:88px;font-size:45px}.brand{font-size:29px}.tag{font-size:14px}.bell{width:52px;height:52px}.item{padding:14px 13px;gap:10px}.icon{width:48px;height:48px;font-size:23px}.name{font-size:15px}.desc{font-size:13px}.status{min-width:115px}.toggle{width:60px;height:34px}.toggle:before{width:26px;height:26px}.toggle.on:before{left:30px}.state{font-size:15px}.tools{padding:8px 12px 16px;gap:8px}.tool{min-height:145px}.tool .ti{font-size:38px}.tool b{font-size:15px}.zalo{padding:16px}.zlogo{width:55px;height:55px}.ztext h3{font-size:18px}.ztext p{font-size:13px}.zbtn{padding:11px 14px;font-size:14px}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="header">
+    <div class="logo">Z</div>
+    <div><div class="brand">ZIAIM</div><div class="tag">Optimize everything<br>Maximize your performance</div></div>
+    <button class="bell" aria-label="Thông báo" onclick="notify('Không có thông báo mới')">♧</button>
+  </header>
+
+  <section class="card">
+    <div class="section-title">CẤU HÌNH <span>☷</span></div>
+    <div id="configs"></div>
+  </section>
+
+  <section class="card">
+    <div class="section-title">CÔNG CỤ <span style="font-size:15px;color:#ddd;font-weight:500">Xem tất cả ▦</span></div>
+    <div class="tools">
+      <div class="tool" onclick="notify('Tăng tốc đã được chọn')"><div class="ti">🚀</div><b>Tăng tốc</b><small>Boost</small><div class="line"></div></div>
+      <div class="tool" onclick="notify('PRO ZIAIM đã được chọn')"><div class="ti">⬡</div><b>PRO ZIAIM</b><small>Stability Pro</small><div class="line"></div></div>
+      <div class="tool" onclick="notify('Bảo vệ đã được chọn')"><div class="ti">♜</div><b>Bảo vệ</b><small>Protection</small><div class="line"></div></div>
+    </div>
+  </section>
+
+  <section class="card zalo">
+    <div class="zlogo">Zalo</div><div class="ztext"><h3>LIÊN HỆ ZALO</h3><p>Nhấn để liên hệ với chúng tôi<br>qua Zalo: <b>0775008920</b></p></div>
+    <button class="zbtn" onclick="contactZalo()">Zalo&nbsp; Liên hệ ngay ›</button>
+  </section>
+
+  <section class="card nav">
+    <button class="active" onclick="nav(this,'Cài đặt')"><span class="ni">⚙</span>Cài đặt</button>
+    <button onclick="nav(this,'Dữ liệu')"><span class="ni">▤</span>Dữ liệu</button>
+    <button onclick="nav(this,'Tài khoản')"><span class="ni">●</span>Tài khoản</button>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const configs=[
+ ['⚡','Tối ưu tốc độ','Tăng tốc độ phản hồi',true],
+ ['⌾','Rung hồng tâm','Cải thiện độ ổn định',true],
+ ['⌁','Kết nối','DNS: ZIAIM',true],
+ ['♢','Bảo mật','Bảo vệ tối đa',false]
+];
+const box=document.getElementById('configs');
+configs.forEach((c,i)=>{
+ const el=document.createElement('div');el.className='item';
+ el.innerHTML=`<div class="icon">${c[0]}</div><div class="info"><div class="name">${c[1]}</div><div class="desc">${c[2]}</div></div><div class="status"><div class="switchrow"><button class="toggle ${c[3]?'on':''}" aria-label="Bật tắt"></button><span class="state">${c[3]?'ON':'OFF'}</span></div><div class="success ${c[3]?'':'off'}">${c[3]?'Đã thành công':'Đã tắt'}</div></div><div class="arrow">›</div>`;
+ const btn=el.querySelector('.toggle');
+ btn.onclick=()=>{c[3]=!c[3];btn.classList.toggle('on',c[3]);el.querySelector('.state').textContent=c[3]?'ON':'OFF';const s=el.querySelector('.success');s.textContent=c[3]?'Đã thành công':'Đã tắt';s.classList.toggle('off',!c[3]);notify(c[1]+(c[3]?' đã bật':' đã tắt'));};
+ box.appendChild(el);
+});
+function notify(t){const x=document.getElementById('toast');x.textContent=t;x.classList.add('show');clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove('show'),1800)}
+function contactZalo(){window.open('https://zalo.me/0775008920','_blank')}
+function nav(el,t){document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));el.classList.add('active');notify(t)}
+</script>
+</body>
+</html>
