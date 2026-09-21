@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AIM TECHNOLOGY</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:#05080d;color:#edf7ff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;padding:24px;display:flex;align-items:center;justify-content:center}
+.card{width:min(430px,100%);padding:28px;border-radius:24px;border:1px solid #1c3348;background:#0b1119;box-shadow:0 20px 70px #000b}
+.logo{text-align:center;font-weight:900;font-size:28px;letter-spacing:3px;color:#00d9ff}
+.sub{text-align:center;color:#7890a8;font-size:11px;letter-spacing:2px;margin:7px 0 25px}
+label{font-size:12px;color:#9eb1c7;font-weight:700}
+input{width:100%;margin-top:8px;padding:15px;border-radius:12px;border:1px solid #294158;background:#05080d;color:white;font-size:16px;outline:0}
+button{width:100%;margin-top:12px;padding:15px;border:0;border-radius:12px;background:#00cfff;color:#001018;font-weight:900;cursor:pointer}
+#status{min-height:24px;text-align:center;margin-top:14px;font-size:13px;font-weight:800}
+#profile{display:none;margin-top:20px;padding:18px;border:1px solid #245469;border-radius:16px;background:#07141b}
+#profile h2{margin:0 0 8px;font-size:17px}
+#profile p{font-size:12px;color:#91a8ba;line-height:1.5}
+.install{display:block;text-align:center;padding:14px;border-radius:11px;background:#25e58b;color:#00150c;text-decoration:none;font-weight:900}
+.note{margin-top:18px;text-align:center;font-size:10px;color:#536b81;line-height:1.5}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="logo">AIM</div>
+  <div class="sub">TECHNOLOGY • SECURE ACCESS</div>
+
+  <label>KEY BẢO MẬT</label>
+  <input id="key" type="password" autocomplete="off" placeholder="Nhập Key để mở file">
+  <button type="button">MỞ KHÓA</button>
+
+  <div id="status"></div>
+
+  <section id="profile">
+    <h2>✓ MobileConfig đã được mở khóa</h2>
+    <p>Key chính xác. Hồ sơ MobileConfig nằm ngay trong file này. Nhấn nút bên dưới để mở hồ sơ và thực hiện cài đặt trên iPhone/iPad.</p>
+    <a id="install" class="install" href="#">MỞ & CÀI MOBILECONFIG</a>
+  </section>
+
+  <div class="note">TamMaoCuTo • Hồ sơ được nhúng trực tiếp trong file</div>
+</main>
+
+<script>
+const ACCESS_KEY = "TamMaoCuTo";
+const MOBILECONFIG = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+UGF5bG9hZENvbnRlbnQ8L2tleT4KCTxhcnJheT4KCQk8ZGljdD4KCQkJPGtleT5ETlNTZXR0aW5nczwva2V5PgoJCQk8ZGljdD4KCQkJCTxrZXk+T25EZW1hbmRSdWxlczwva2V5PgoJCQkJPGFycmF5PgoJCQkJCTxkaWN0PgoJCQkJCQk8a2V5PkFjdGlvbjwva2V5PgoJCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8L2RpY3Q+CgkJCQk8L2FycmF5PgoJCQkJPGtleT5TZXJ2ZXJBZGRyZXNzZXM8L2tleT4KCQkJCTxhcnJheT4KCQkJCQk8c3RyaW5nPjEuMS4xLjE8L3N0cmluZz4KCQkJCQk8c3RyaW5nPjEuMC4wLjE8L3N0cmluZz4KCQkJCTwvYXJyYXk+CgkJCQk8a2V5PlNlcnZlclVSTDwva2V5PgoJCQkJPHN0cmluZz5odHRwczovL2Nsb3VkZmxhcmUtZG5zLmNvbS9kbnMtcXVlcnk8L3N0cmluZz4KCQkJPC9kaWN0PgoJCQk8a2V5PlBheWxvYWREaXNwbGF5TmFtZTwva2V5PgoJCQk8c3RyaW5nPkFJTSBMT0NLIC0gRE5TPC9zdHJpbmc+CgkJCTxrZXk+UGF5bG9hZElkZW50aWZpZXI8L2tleT4KCQkJPHN0cmluZz5jb20udGFtbWFvLmFpbWxvY2suZG5zPC9zdHJpbmc+CgkJCTxrZXk+UGF5bG9hZE9yZ2FuaXphdGlvbjwva2V5PgoJCQk8c3RyaW5nPlRhbU1hbzwvc3RyaW5nPgoJCQk8a2V5PlBheWxvYWRUeXBlPC9rZXk+CgkJCTxzdHJpbmc+Y29tLmFwcGxlLmRuc1NldHRpbmdzLm1hbmFnZWQ8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVVVJRDwva2V5PgoJCQk8c3RyaW5nPkYxMDJGRUVBLUE3MkUtNDI2Ni05M0IyLTJEQTcxRjcyMjQ0Nzwvc3RyaW5nPgoJCQk8a2V5PlBheWxvYWRWZXJzaW9uPC9rZXk+CgkJCTxpbnRlZ2VyPjE8L2ludGVnZXI+CgkJPC9kaWN0PgoJPC9hcnJheT4KCTxrZXk+UGF5bG9hZERpc3BsYXlOYW1lPC9rZXk+Cgk8c3RyaW5nPkFJTSBMT0NLPC9zdHJpbmc+Cgk8a2V5PlBheWxvYWREZXNjcmlwdGlvbjwva2V5PgoJPHN0cmluZz5BSU0gTE9DSyAtIGPhuqV1IGjDrG5oIEROUyBjaG8gdGhp4bq/dCBi4buLLiBETlMgc+G7rSBk4bulbmcgQ2xvdWRmbGFyZSBETlMtb3Zlci1IVFRQUyAoMS4xLjEuMSAvIDEuMC4wLjEpLiBQcm9maWxlIGtow7RuZyB04buxIMSR4buZbmcgdGhheSDEkeG7lWkgxJHhu5kgbmjhuqF5LCBuZ+G6r20gYuG6r24gaG/hurdjIHThuqFvIGzhu6NpIHRo4bq/IGdpYW4gbOG6rW4gdHJvbmcgZ2FtZS48L3N0cmluZz4KCTxrZXk+UGF5bG9hZElkZW50aWZpZXI8L2tleT4KCTxzdHJpbmc+Y29tLnRhbW1hby5haW1sb2NrPC9zdHJpbmc+Cgk8a2V5PlBheWxvYWRPcmdhbml6YXRpb248L2tleT4KCTxzdHJpbmc+VGFtTWFvPC9zdHJpbmc+Cgk8a2V5PlBheWxvYWRSZW1vdmFsRGlzYWxsb3dlZDwva2V5PgoJPGZhbHNlLz4KCTxrZXk+UGF5bG9hZFR5cGU8L2tleT4KCTxzdHJpbmc+Q29uZmlndXJhdGlvbjwvc3RyaW5nPgoJPGtleT5QYXlsb2FkVVVJRDwva2V5PgoJPHN0cmluZz45MDA4QzBEMi01MkRFLTQ1NTMtQTJEMS1GQTE5QjAxMDIyQzU8L3N0cmluZz4KCTxrZXk+UGF5bG9hZFZlcnNpb248L2tleT4KCTxpbnRlZ2VyPjE8L2ludGVnZXI+CjwvZGljdD4KPC9wbGlzdD4K";
+let profileURL = null;
+
+function makeProfile() {
+  const raw = atob(MOBILECONFIG);
+  const bytes = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) bytes[i] = raw.charCodeAt(i);
+
+  const blob = new Blob([bytes], { type: "application/x-apple-aspen-config" });
+
+  if (profileURL) URL.revokeObjectURL(profileURL);
+  profileURL = URL.createObjectURL(blob);
+
+  document.getElementById("openProfile").href = profileURL;
+  document.getElementById("downloadProfile").href = profileURL;
+}
+
+function unlock() {
+  const entered = document.getElementById("key").value.trim();
+  const status = document.getElementById("status");
+  const profile = document.getElementById("profile");
+
+  if (entered !== ACCESS_KEY) {
+    status.textContent = "✕ KHÔNG THÀNH CÔNG — KEY KHÔNG ĐÚNG";
+    status.style.color = "#ff5f6d";
+    profile.style.display = "none";
+    return;
+  }
+
+  try {
+    makeProfile();
+    status.textContent = "✓ TamMaoCuTo — XÁC THỰC THÀNH CÔNG";
+    status.style.color = "#25e58b";
+    profile.style.display = "block";
+  } catch (e) {
+    status.textContent = "✕ Không thể tạo MobileConfig";
+    status.style.color = "#ff5f6d";
+    profile.style.display = "none";
+    console.error(e);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("key");
+  const button = document.querySelector("button");
+
+  button.type = "button";
+  button.addEventListener("click", unlock);
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") unlock();
+  });
+});
+</script>
+</body>
+</html>
